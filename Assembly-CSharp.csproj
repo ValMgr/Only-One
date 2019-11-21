@@ -44,7 +44,11 @@
     <ImplicitlyExpandNETStandardFacades>false</ImplicitlyExpandNETStandardFacades>
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
-  <ItemGroup>     <Compile Include="Assets\Scripts\MapGeneration.cs" />
+  <ItemGroup>     <Compile Include="Assets\Scripts\Characters.cs" />
+     <Compile Include="Assets\Scripts\Characters\Archer.cs" />
+     <Compile Include="Assets\Scripts\Characters\Priest.cs" />
+     <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Scripts\MapGeneration.cs" />
      <Compile Include="Assets\Scripts\cellChoice.cs" />
  <Reference Include="Unity.XR.Management">
  <HintPath>F:/Game Jams/GameJam #1/Only One 3D/Library/ScriptAssemblies/Unity.XR.Management.dll</HintPath>

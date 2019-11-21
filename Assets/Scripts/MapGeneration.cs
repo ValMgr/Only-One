@@ -29,6 +29,7 @@ public class MapGeneration : MonoBehaviour {
                 cells.transform.localScale = cell.transform.localScale + new Vector3(-0.1f, 0, -0.1f);
                 cells.transform.parent = Map.transform;
                 cells.name = "cell" + id;
+                cells.tag = "Cells";
 
                 cells.GetComponent<cellChoice>().ID = id;
                 id++;
