@@ -9,10 +9,10 @@ public class cellChoice : MonoBehaviour {
     public bool selected;
     private Renderer CellRenderer;
 
-    private List<GameObject> characters;
+    private List characters;
     
     private void Start() {
-        characters = GameObject.Find("Characters").transform.GetChild;
+        Debug.Log(GameObject.Find("Characters").transform.GetChild(0));
         CellRenderer = this.gameObject.GetComponent<Renderer>();
     }
 
@@ -34,6 +34,6 @@ public class cellChoice : MonoBehaviour {
     }
 
     public void OnMouseDown() {
-       characters.gameObject.SendMessage("Moove", this.transform.position /*,SendMessageOptions.DontRequireReceiver*/);
+       //characters.gameObject.SendMessage("Moove", this.transform.position /*,SendMessageOptions.DontRequireReceiver*/);
     }
 }
