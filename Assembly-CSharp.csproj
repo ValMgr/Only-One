@@ -44,7 +44,8 @@
     <ImplicitlyExpandNETStandardFacades>false</ImplicitlyExpandNETStandardFacades>
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
-  <ItemGroup>     <Compile Include="Assets\Scripts\Characters.cs" />
+  <ItemGroup>     <Compile Include="Assets\Scripts\CameraBehavior.cs" />
+     <Compile Include="Assets\Scripts\Characters.cs" />
      <Compile Include="Assets\Scripts\Characters\Archer.cs" />
      <Compile Include="Assets\Scripts\Characters\Priest.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />

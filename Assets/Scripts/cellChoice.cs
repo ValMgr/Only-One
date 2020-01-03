@@ -5,15 +5,18 @@ using System.Collections.Generic;
 public class cellChoice : MonoBehaviour {
 
     [System.NonSerialized]
-    public int ID;
-    public bool selected;
+    private int ID;
     private Renderer CellRenderer;
+    private GameManager GameManager;
 
-    private List characters;
     
     private void Start() {
-        Debug.Log(GameObject.Find("Characters").transform.GetChild(0));
+        GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         CellRenderer = this.gameObject.GetComponent<Renderer>();
+    }
+
+    public void SetID(int id){
+        ID = id;
     }
 
     private Color prevColor;
@@ -25,15 +28,13 @@ public class cellChoice : MonoBehaviour {
         }
         newColor = prevColor + new Color(0.3f, 0.3f, 0.3f, prevColor.a + 0.3f);
         CellRenderer.material.SetColor("_Color", newColor);
-        selected = true;
     }
 
     private void OnMouseExit() {
         CellRenderer.material.SetColor("_Color", prevColor /*new Color(1f, 1f, 1f, 0.45f)*/);
-        selected = false;
     }
 
     public void OnMouseDown() {
-       //characters.gameObject.SendMessage("Moove", this.transform.position /*,SendMessageOptions.DontRequireReceiver*/);
+        GameManager.CellClicked(this.ID, this.transform.position);
     }
 }

@@ -31,7 +31,7 @@ public class MapGeneration : MonoBehaviour {
                 cells.name = "cell" + id;
                 cells.tag = "Cells";
 
-                cells.GetComponent<cellChoice>().ID = id;
+                cells.GetComponent<cellChoice>().SetID(id);
                 id++;
                 
             }
