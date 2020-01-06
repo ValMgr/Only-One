@@ -26,7 +26,7 @@ public class cellChoice : MonoBehaviour {
         if(CellRenderer.material.color != newColor){
             prevColor = CellRenderer.material.color;
         }
-        newColor = prevColor + new Color(0.3f, 0.3f, 0.3f, prevColor.a + 0.3f);
+        newColor = prevColor + new Color(0.15f, 0.15f, 0.15f, prevColor.a + 0.3f);
         CellRenderer.material.SetColor("_Color", newColor);
     }
 

@@ -9,6 +9,7 @@ public class Characters : MonoBehaviour {
 
     public float PM; // Movement Point
     public float PA; // Action Point
+    public float HP; // Life point
 
     public bool canMove = false;
     [System.NonSerialized]
@@ -43,6 +44,7 @@ public class Characters : MonoBehaviour {
         float distance = Mathf.Floor(Vector3.Distance(target, transform.position));
 
         if(mooving && distance <= (PM * 4 + 1)){
+            transform.LookAt(correctTarget);
             while (Mathf.Round(transform.position.x) != Mathf.Round(correctTarget.x) || Mathf.Round(transform.position.z) != Mathf.Round(correctTarget.z)){
                 transform.position = Vector3.Lerp(transform.position, correctTarget, speed * Time.deltaTime);
                 yield return null;               
