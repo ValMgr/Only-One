@@ -19,6 +19,7 @@ public class CameraBehavior : MonoBehaviour {
     private void FixedUpdate() {
 
 
+        // Command to moove target when camera is following a Character
         if(followingTarget){
             if(Input.GetAxis("CameraRotation") > 0){
                 transform.RotateAround(target.position, Vector3.up, Time.deltaTime * speed * 2);
@@ -37,6 +38,7 @@ public class CameraBehavior : MonoBehaviour {
             }
         }
 
+        // Then, other commands when camera is free
         if(!followingTarget){
             if(Input.GetAxis("CameraRotation") > 0){
                 transform.RotateAround(new Vector3(0, 0, 0), Vector3.up, Time.deltaTime * speed * 2);
@@ -56,7 +58,7 @@ public class CameraBehavior : MonoBehaviour {
             }
         }
 
-       
+        // Other command working for both case
         // Vertical Axis
         if(Input.GetAxis("CameraVertical") > 0){
             transform.Translate((Vector3.forward + Vector3.up) * Time.deltaTime * speed);
@@ -91,23 +93,27 @@ public class CameraBehavior : MonoBehaviour {
         }
 
 
-        // Temporaire
+        // - - Temporaire - - Stop following target
         if(Input.GetKeyDown("n")){
             StopFollowTarget();
         }
     }
 
+    // Get target and looking at it
     private void FollowTarget(){
         this.transform.position = new Vector3(target.position.x, target.position.y + 20f, target.position.z -30f);
         followingTarget = true;
         this.transform.parent = target;
         transform.LookAt(target);
     }
+    
+    // Get a new target
     public void NewTarget(Transform newTarget){
         target = newTarget;
         FollowTarget();
     }
 
+    // Stop following the target
     public void StopFollowTarget(){
         followingTarget = false;
         target = null;

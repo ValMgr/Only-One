@@ -16,7 +16,7 @@ public class Characters : MonoBehaviour {
     public bool mooving = false;
     protected bool canPlay = false;
 
-    //Temporaire
+    // - - Temporaire - -
     public GameObject Camera;
     
 
@@ -33,11 +33,14 @@ public class Characters : MonoBehaviour {
         }
     }
 
+    // Get target position and start coroutine MooveToTarget()
     public void Moove(Vector3 target){
         IEnumerator moove = MooveToTarget(target);
         StartCoroutine(moove);
     }
 
+    // LookAt target, then moove into this direction.
+    // When done if characters still have PM display the new range, or end character turn
     protected IEnumerator MooveToTarget(Vector3 target) {
 
         Vector3 correctTarget = new Vector3(target.x, transform.position.y, target.z);
@@ -70,7 +73,7 @@ public class Characters : MonoBehaviour {
 
     }
 
-
+    // Display all cells in the range of Character define by PM
     protected void MooveRange(float radius) {
 
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius * 4 - 0.5f);
@@ -89,6 +92,7 @@ public class Characters : MonoBehaviour {
         }
     }
 
+    // Reset Range and hide highlighted cells
     protected void ResetRange(){
         foreach (var cells in GameObject.FindGameObjectsWithTag("Cells")){
             if(cells.gameObject.GetComponent<Renderer>().material.color != new Color(0.45f, 0.45f, 0.45f, 1f)){

@@ -21,7 +21,8 @@ public class cellChoice : MonoBehaviour {
 
     private Color prevColor;
     private Color newColor;
-    
+
+    // on mouse over highlight cell
     private void OnMouseOver() {
         if(CellRenderer.material.color != newColor){
             prevColor = CellRenderer.material.color;
@@ -30,10 +31,12 @@ public class cellChoice : MonoBehaviour {
         CellRenderer.material.SetColor("_Color", newColor);
     }
 
+    // on mouse exit reset cell color
     private void OnMouseExit() {
         CellRenderer.material.SetColor("_Color", prevColor /*new Color(1f, 1f, 1f, 0.45f)*/);
     }
 
+    // when clicked call function in GameManager.cs
     public void OnMouseDown() {
         GameManager.CellClicked(this.ID, this.transform.position);
     }
